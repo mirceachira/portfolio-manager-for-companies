@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Company {% endblock %}
+
+{% block content %}
+
+    <h1> {{ company.name }} </h1>
+
+    <p> {{ company.description }} </p>
+    <p> {{ company.email }} </p>
+
+{% endblock content %}

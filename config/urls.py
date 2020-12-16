@@ -16,6 +16,9 @@ urlpatterns = [
     path("users/", include("portfolio_manager.users.urls", namespace="users")),
     path("news/", include("portfolio_manager.articles.urls", namespace="articles")),
     path("accounts/", include("allauth.urls")),
+
+    # Companies management
+    path("companies/",include("portfolio_manager.companies.urls",namespace="companies"))
     # Your stuff: custom urls includes go here
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

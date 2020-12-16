@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Companies {% endblock %}
+
+{% block content %}
+
+    <h1> Companies list</h1>
+    <ul>
+        {% for company in company_list %}
+            <li>
+                <a href="{% url 'companies:detail' company.name %}">{{ company.description }}</a>
+
+            </li>
+        {% endfor %}
+    </ul>
+
+{% endblock content %}
