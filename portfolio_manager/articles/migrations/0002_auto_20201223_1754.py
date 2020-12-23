@@ -6,23 +6,28 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('articles', '0001_initial'),
+        ("articles", "0001_initial"),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name='article',
-            options={'ordering': ('-is_promoted', '-publish_date')},
+            name="article",
+            options={"ordering": ("-is_promoted", "-publish_date")},
         ),
         migrations.AddField(
-            model_name='article',
-            name='expiration_date',
-            field=models.DateTimeField(blank=True, help_text='Valid until date', null=True),
+            model_name="article",
+            name="expiration_date",
+            field=models.DateTimeField(
+                blank=True, help_text="Valid until date", null=True
+            ),
         ),
         migrations.AddField(
-            model_name='article',
-            name='is_promoted',
-            field=models.BooleanField(default=False, help_text='should be displayed first, for important articles'),
+            model_name="article",
+            name="is_promoted",
+            field=models.BooleanField(
+                default=False,
+                help_text="should be displayed first, for important articles",
+            ),
             preserve_default=False,
         ),
     ]

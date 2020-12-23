@@ -75,6 +75,7 @@ LOCAL_APPS = [
     "portfolio_manager.users.apps.UsersConfig",
     # Your stuff: custom apps go here
     "portfolio_manager.articles",
+    "portfolio_manager.companies"
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
