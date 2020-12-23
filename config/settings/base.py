@@ -68,6 +68,7 @@ THIRD_PARTY_APPS = [
     "allauth",
     "allauth.account",
     "allauth.socialaccount",
+    "simple_history",
 ]
 
 LOCAL_APPS = [
@@ -131,6 +132,7 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.common.BrokenLinkEmailsMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "simple_history.middleware.HistoryRequestMiddleware",
 ]
 
 # STATIC
@@ -266,5 +268,6 @@ ACCOUNT_ADAPTER = "portfolio_manager.users.adapters.AccountAdapter"
 SOCIALACCOUNT_ADAPTER = "portfolio_manager.users.adapters.SocialAccountAdapter"
 
 
-# Your stuff...
+# django-simple-history
 # ------------------------------------------------------------------------------
+SIMPLE_HISTORY_REVERT_DISABLED = True
