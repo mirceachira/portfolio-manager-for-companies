@@ -1,4 +1,5 @@
 from django.db import models
+from simple_history.models import HistoricalRecords
 
 
 class Company(models.Model):
@@ -9,10 +10,37 @@ class Company(models.Model):
     description = models.TextField(
         null=False, blank=False, help_text="description of the company"
     )
-    email = models.TextField(null=False, blank=False, help_text="company's email")
-    phone = models.TextField(null=False, blank=False, help_text="company's phone")
-    adress = models.TextField(null=False, blank=False, help_text="company's adress")
 
-    # Optionally, the companies can add their size and what technologies are using
-    # size=models.TextField(null=True,blank=True,help_text="company's size")
-    # technologies=models.TextField(null=True,blank=True,help_text="company's technologies")
+    email = models.EmailField(null=False, blank=False, help_text="company's email")
+    phone = models.TextField(null=True, blank=True, help_text="company's phone")
+    adress = models.TextField(
+        null=False,
+        blank=False,
+        help_text="adresa fizica (de preferat din Cluj) a companiei",
+    )
+
+    website = models.URLField(
+        max_length=200, null=True, blank=True, help_text="website-ul companiei"
+    )
+    facebook = models.URLField(
+        max_length=200,
+        null=True,
+        blank=True,
+        help_text="pagina de facebook a companiei",
+    )
+    linkdin = models.URLField(
+        max_length=200, null=True, blank=True, help_text="pagina de linkdin a companiei"
+    )
+
+    university_public_note = models.TextField(
+        null=True,
+        blank=True,
+        help_text="Informatii publice adaugate de universitate pentru aceasta companie",
+    )
+    university_private_note = models.TextField(
+        null=True,
+        blank=True,
+        help_text="Informatii private adaugate de universitate pentru aceasta companie",
+    )
+
+    history = HistoricalRecords()
