@@ -69,13 +69,14 @@ THIRD_PARTY_APPS = [
     "allauth.account",
     "allauth.socialaccount",
     "simple_history",
+    "invitations",
 ]
 
 LOCAL_APPS = [
     "portfolio_manager.users.apps.UsersConfig",
     # Your stuff: custom apps go here
     "portfolio_manager.articles",
-    "portfolio_manager.companies"
+    "portfolio_manager.companies",
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -272,3 +273,5 @@ SOCIALACCOUNT_ADAPTER = "portfolio_manager.users.adapters.SocialAccountAdapter"
 # django-simple-history
 # ------------------------------------------------------------------------------
 SIMPLE_HISTORY_REVERT_DISABLED = True
+ACCOUNT_ADAPTER = "invitations.models.InvitationsAdapter"
+# https://www.reddit.com/r/django/comments/gnxwx1/modifying_the_djangoinvitations_package_to_allow/

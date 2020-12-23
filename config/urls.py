@@ -14,12 +14,13 @@ urlpatterns = [
     path(settings.ADMIN_URL, admin.site.urls),
     # User management
     path("users/", include("portfolio_manager.users.urls", namespace="users")),
-    path("news/", include("portfolio_manager.articles.urls", namespace="articles")),
     path("accounts/", include("allauth.urls")),
-
-    # Companies management
-    path("companies/",include("portfolio_manager.companies.urls",namespace="companies"))
+    path("invitations/", include("invitations.urls", namespace="invitations")),
     # Your stuff: custom urls includes go here
+    path("news/", include("portfolio_manager.articles.urls", namespace="articles")),
+    path(
+        "companies/", include("portfolio_manager.companies.urls", namespace="companies")
+    ),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
