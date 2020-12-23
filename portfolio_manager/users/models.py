@@ -11,7 +11,7 @@ class User(AbstractUser):
 
     #: First and last name do not cover name patterns around the globe
     name = CharField(_("Name of User"), blank=True, max_length=255)
-    company = ForeignKey(Company, on_delete=CASCADE)
+    company = ForeignKey(Company, null=True, blank=True, on_delete=CASCADE)
 
     def get_absolute_url(self):
         """Get url for user's detail view.

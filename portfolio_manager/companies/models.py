@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 from simple_history.models import HistoricalRecords
 
 
@@ -44,3 +45,7 @@ class Company(models.Model):
     )
 
     history = HistoricalRecords()
+
+    def get_absolute_url(self):
+        """Used to generate reverse URL for detail page by forms."""
+        return reverse("companies:detail", kwargs={"pk": self.pk})

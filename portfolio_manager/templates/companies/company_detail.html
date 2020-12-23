@@ -10,4 +10,7 @@
     <p> {{ company.description }} </p>
     <p> {{ company.email }} </p>
 
+    <a href="{% url 'companies:articles' company.id %}">articles from this company</a>
+
+
 {% endblock content %}
