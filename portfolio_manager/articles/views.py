@@ -75,7 +75,7 @@ class ArticleCompanyListView(ArticleListView):
 article_company_list_view = ArticleCompanyListView.as_view()
 
 
-class ArticleCreateView(CreateView):
+class ArticleCreateView(ArticleUserPassesTestMixin, CreateView):
     model = Article
     fields = ["title", "content", "publish_date", "expiration_date"]
 
@@ -103,7 +103,7 @@ class ArticleUpdateView(ArticleUserPassesTestMixin, UpdateView):
 article_update_view = ArticleUpdateView.as_view()
 
 
-class ArticleDeleteView(DeleteView):
+class ArticleDeleteView(ArticleUserPassesTestMixin, DeleteView):
     model = Article
     success_url = reverse_lazy("articles:list")
 
