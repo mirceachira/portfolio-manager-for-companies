@@ -5,8 +5,10 @@
 
 {% block content %}
 
+    <a href="{% url 'articles:add' %}">create a new article</a>
     <h1>Posts</h1>
-    <p>This page contains approved posts from all companies as well as the university</p>
+    <p>This page contains posts only from my own company, approved or not</p>
+
     <ul>
         {% for article in article_list %}
             <li>

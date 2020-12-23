@@ -9,4 +9,9 @@
 
     <p> {{ article.content }} </p>
 
+    <a href="{% url 'articles:update' article.id %}">edit</a>
+    <br/>
+    <a href="{% url 'articles:delete' article.id %}">delete</a>
+
+
 {% endblock content %}
