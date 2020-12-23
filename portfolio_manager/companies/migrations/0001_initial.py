@@ -7,19 +7,29 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Company',
+            name="Company",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.TextField(help_text="company's name")),
-                ('description', models.TextField(help_text='description of the company')),
-                ('email', models.TextField(help_text="company's email")),
-                ('phone', models.TextField(help_text="company's phone")),
-                ('adress', models.TextField(help_text="company's adress")),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.TextField(help_text="company's name")),
+                (
+                    "description",
+                    models.TextField(help_text="description of the company"),
+                ),
+                ("email", models.TextField(help_text="company's email")),
+                ("phone", models.TextField(help_text="company's phone")),
+                ("adress", models.TextField(help_text="company's adress")),
             ],
         ),
     ]
