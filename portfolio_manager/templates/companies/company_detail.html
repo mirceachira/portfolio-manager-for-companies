@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load markdown_extras %}
 
 {% block title %}Company {% endblock %}
 
@@ -7,7 +8,7 @@
 
     <h1> {{ company.name }} </h1>
 
-    <p> {{ company.description }} </p>
+    <p> {{ company.description | markdown | safe }} </p>
     <p> {{ company.email }} </p>
 
     <a href="{% url 'companies:articles' company.id %}">articles from this company</a>
