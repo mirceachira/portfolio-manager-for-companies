@@ -65,7 +65,7 @@ class CompanyArticlesListView(ListView):
 
     def get_queryset(self, *args, **kwargs):
         return Article.objects.filter(
-            Q(id=self.kwargs["pk"]),
+            Q(author__company=self.kwargs["pk"]),
             Q(is_approved=True),
             Q(publish_date__lte=datetime.now()),
             # Has no expiration date or has not expired yet
