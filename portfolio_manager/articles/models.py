@@ -12,8 +12,7 @@ class Article(models.Model):
 
     class Meta:
         ordering = (  # Whenever we make a query we want to
-            "-is_promoted",  # first show promoted articles
-            "-publish_date",  # then order them newest first
+            "-publish_date",  # order them newest first
         )
 
     # Each article must have atleast an author, a title and some content.
