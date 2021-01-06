@@ -1,5 +1,5 @@
 log:
-  level: INFO
+  level: DEBUG
 
 entryPoints:
   web:
@@ -23,7 +23,7 @@ certificatesResolvers:
 http:
   routers:
     web-router:
-      rule: "Host(`replace.this.dummy.domainname.com`)"
+      rule: "Host(`musichub.team`)"
       entryPoints:
         - web
       middlewares:
@@ -32,7 +32,7 @@ http:
       service: django
 
     web-secure-router:
-      rule: "Host(`replace.this.dummy.domainname.com`)"
+      rule: "Host(`musichub.team`)"
       entryPoints:
         - web-secure
       middlewares:
