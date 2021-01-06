@@ -33,6 +33,10 @@ class Company(models.Model):
         max_length=200, null=True, blank=True, help_text="pagina de linkdin a companiei"
     )
 
+    has_gold_status = models.BooleanField(
+        default=False, help_text="company is a valued partener of our university"
+    )
+
     university_public_note = models.TextField(
         null=True,
         blank=True,

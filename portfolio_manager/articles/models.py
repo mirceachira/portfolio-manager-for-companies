@@ -47,8 +47,8 @@ class Article(models.Model):
         default=False, help_text="was this approved by an admin for publishing"
     )
 
-    is_promoted = models.BooleanField(
-        default=False, help_text="should be displayed first, for important articles"
+    is_pinned = models.BooleanField(
+        default=False, help_text="should be displayed in the pinned articles section"
     )
 
     university_public_note = models.TextField(
