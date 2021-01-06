@@ -58,7 +58,7 @@ class ArticleListView(ListView):
         Q(is_approved=True),
         Q(publish_date__lte=datetime.now()),
         # Has no expiration date or has not expired yet
-        Q(expiration_date__isnull=True) | Q(expiration_date__lte=datetime.now()),
+        Q(expiration_date__isnull=True) | Q(expiration_date__gte=datetime.now()),
     )
     paginate_by = 10
     template_name = "articles/article_list.html"
@@ -68,8 +68,10 @@ article_list_view = ArticleListView.as_view()
 
 
 class ArticleCompanyListView(ArticleListView):
-    queryset = Article.objects.all()  # TODO filter by company
     template_name = "articles/article_company_list.html"
+
+    def get_queryset(self, *args, **kwargs):
+        return Article.objects.filter(author__company=self.request.user.company)
 
 
 article_company_list_view = ArticleCompanyListView.as_view()
