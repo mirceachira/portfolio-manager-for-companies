@@ -1,1 +1,63 @@
+
 {% extends "base.html" %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+
+<head>
+
+    {% block css %}
+   
+
+    <!-- Latest compiled and minified Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+
+
+
+    <link href="{% static './css/home.css' %}" rel="stylesheet">
+
+    <!-- <link rel="image" href="{% static './images/background.jpg' %}"> -->
+
+    {% endblock %}
+
+
+</head>
+
+<body  >
+    
+    
+    {% block content %}
+    <div class="homepage">
+        <div class="header">
+            Portofolio Manager For Companies
+        </div>
+    
+
+        
+    </div>
+    <div class="arrow">
+        <div class="arrowtext">ABOUT</div>
+        <input class="scrolldown" placeholder="News" type="image" src="../../static/images/down2.png"  onClick="document.getElementById('lowerpage').scrollIntoView( {behavior: 'smooth'});" /> 
+    </div>
+    <div  class="lower">
+        <div class="description">
+            <h1 id="lowerpage">ABOUT</h1>
+            <p>Welcome, on this website you will find everything there is to know UBB's partner companies</p>
+            <a class="gotonews" href="{% url 'articles:list' %}">CLICK HERE TO SEE ALL NEWS</a>
+        </div>
+       
+    </div>
+
+    
+
+    
+
+    {% endblock content %}
+
+
+
+</body>
+</html>
