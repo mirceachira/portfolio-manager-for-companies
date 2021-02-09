@@ -1,18 +1,51 @@
 {% extends "base.html" %}
 {% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    {% block css %}
+   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link href="{% static './css/company_list.css' %}" rel="stylesheet">
+
+    {% endblock %}
+</head>
+
+<body>
+
 
 {% block title %}Companies {% endblock %}
 
 {% block content %}
+<div class="hero">  <h1> Companies</h1>
 
-    <h1> Companies list</h1>
-    <ul>
+    <ul class="companylist">
         {% for company in company_list %}
-            <li>
-                <a href="{% url 'companies:detail' company.id %}">{{ company.name }}</a>
+        {% if company.has_gold_status == True %}
+            <li class="gold">
+            
+                <a  href="{% url 'companies:detail' company.id %}">{{ company.name }}</a>
 
             </li>
+
+            {% else %}
+            <li>
+            
+                <a  href="{% url 'companies:detail' company.id %}">{{ company.name }}</a>
+
+            </li>
+            {% endif %}
         {% endfor %}
     </ul>
 
+
+</div>
+   
+    
+
 {% endblock content %}
+</body>
+
+</html>

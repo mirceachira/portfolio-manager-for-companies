@@ -8,7 +8,7 @@
     <meta name="description" content="Portfolio manager for software companies to publish their information, internship announcements, and more. For the UBB Mathematics and Computer Science faculty.">
     <meta name="author" content="Chira Mircea">
 
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->  
     <!--[if lt IE 9]>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
     <![endif]-->
@@ -27,6 +27,8 @@
 
     <link href="{% static 'css/project.css' %}" rel="stylesheet">
 
+  
+
 
     {% endblock %}
 
@@ -34,20 +36,19 @@
 
   <body>
 
+  
+
     <div class="mb-1">
       <nav class="navbar navbar-expand-md navbar-light bg-light">
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand" href="{% url 'home' %}">Portfolio Manager for Companies</a>
+        <a class="navbar-brand" href="{% url 'home' %}">Babes-Bolyai University</a>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
               <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'about' %}">About</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{% url 'articles:list' %}">News</a>
@@ -93,6 +94,8 @@
 
       {% block content %}
         <p>Use this document as a way to quick start any new project.</p>
+        
+  <body>
       {% endblock content %}
 
     </div> <!-- /container -->
