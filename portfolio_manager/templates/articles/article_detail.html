@@ -10,10 +10,10 @@
 
     <p> {{ article.content | markdown | safe  }} </p>
 
-    <a href="{% url 'articles:update' article.id %}">edit</a>
+    <!-- <a href="{% url 'articles:update' article.id %}">edit</a>
     <br/>
-    <a href="{% url 'articles:delete' article.id %}">delete</a>
-
+    <a href="{% url 'articles:delete' article.id %}">delete</a> -->
+    Tags:
     <ul>
         {% for tag_name in article.tags.all %}
             <li>{{ tag_name }}</li>

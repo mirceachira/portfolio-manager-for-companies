@@ -1,0 +1,18 @@
+
+.container {
+    height: auto;
+    overflow: hidden;
+    }
+
+.right {
+    width: 200px;
+    float: right;
+    background: #6e90d8;
+    color: black;
+    }
+
+.left {
+    background: #ffffff;
+    width: auto;
+    overflow: hidden;
+    }

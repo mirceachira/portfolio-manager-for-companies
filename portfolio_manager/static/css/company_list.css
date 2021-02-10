@@ -41,5 +41,13 @@ a:hover, a:visited, a:link, a:active {
    }
 
    ul li.gold{
-    order:-1;
-}
+    order:-1;  
+    }
+   
+    .pinned{
+    color: red;
+    }
+
+    ul li.pinned{
+        order:-2;
+    }
