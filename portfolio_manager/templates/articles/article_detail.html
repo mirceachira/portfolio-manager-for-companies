@@ -14,5 +14,10 @@
     <br/>
     <a href="{% url 'articles:delete' article.id %}">delete</a>
 
+    <ul>
+        {% for tag_name in article.tags.all %}
+            <li>{{ tag_name }}</li>
+        {% endfor %}
+    </ul>
 
 {% endblock content %}

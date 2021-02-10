@@ -4,6 +4,27 @@ from django.urls import reverse
 from simple_history.models import HistoricalRecords
 
 
+class ArticleTag(models.Model):
+    """
+    Taguri pentru clasificat si filtrat articole.
+
+    ex: 'internship', 'hackathon', 'python', 'java', 'conference', etc.
+    """
+
+    name = models.TextField(null=False, blank=False, help_text="the tag shortname")
+    description = models.TextField(
+        null=False, blank=False, help_text="the tag explanaition"
+    )
+    color = models.TextField(
+        null=False,
+        blank=False,
+        help_text="the tag's color, may be useful to keep consistency on fe, ex: 'blue",
+    )
+
+    def __str__(self):
+        return self.name
+
+
 class Article(models.Model):
     """Default article model for Portfolio Manager for Companies.
 
@@ -14,6 +35,9 @@ class Article(models.Model):
         ordering = (  # Whenever we make a query we want to
             "-publish_date",  # order them newest first
         )
+
+    def __str__(self):
+        return self.title
 
     # Each article must have atleast an author, a title and some content.
     author = models.ForeignKey(
@@ -60,6 +84,8 @@ class Article(models.Model):
         blank=True,
         help_text="Informatii private adaugate de universitate pentru acest articol",
     )
+
+    tags = models.ManyToManyField(ArticleTag)
 
     history = HistoricalRecords()
 
