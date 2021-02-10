@@ -31,11 +31,6 @@ class Article(models.Model):
     An article can be anything from an internship, hackathon, other announcements.
     """
 
-    class Meta:
-        ordering = (  # Whenever we make a query we want to
-            "-publish_date",  # order them newest first
-        )
-
     def __str__(self):
         return self.title
 
