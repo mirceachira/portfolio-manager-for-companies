@@ -20,6 +20,7 @@
 {% block title %}Article {% endblock %}
 
 {% block content %}
+
 <div class = "left">
     <h1> {{ article.title }} </h1>
 
@@ -28,12 +29,14 @@
     <!-- <a href="{% url 'articles:update' article.id %}">edit</a>
     <br/>
     <a href="{% url 'articles:delete' article.id %}">delete</a> -->
+    <div class="tags">
     Tags:
     <ul>
         {% for tag_name in article.tags.all %}
             <li>{{ tag_name }}</li>
         {% endfor %}
     </ul>
+</div>
 </div>
 {% endblock content %}
 

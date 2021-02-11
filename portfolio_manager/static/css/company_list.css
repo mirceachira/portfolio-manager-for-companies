@@ -34,14 +34,20 @@ body a{
     display: flex;
     flex-direction: column;
   }
+  
 
    .gold a{
-       color: gold;
+       color:black;
      
+   }
+
+   .gold a:hover{
+       color:gold;
    }
 
    ul li.gold{
     order:-1;  
+    list-style-image: url('../images/thestar.png');
     }
    
     .pinned{
@@ -51,3 +57,16 @@ body a{
     ul li.pinned{
         order:-2;
     }
+
+    .company-list{
+        margin-top: 30px;
+        font-weight: bold;
+        border-bottom: 1px solid rgba(112, 112, 170, .5);
+    }
+    .gold{
+        margin-top: 30px;
+        font-weight: bold;
+        border-bottom: 1px solid rgba(112, 112, 170, .5);
+    }
+
+    

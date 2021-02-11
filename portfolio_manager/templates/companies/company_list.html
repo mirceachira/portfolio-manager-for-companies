@@ -28,14 +28,21 @@
         {% if company.has_gold_status == True %}
             <li class="gold">
             
-                <a  href="{% url 'companies:detail' company.id %}">{{ company.name }}</a>
+
+            
+            
+                <a  href="{% url 'companies:detail' company.id %}">{{ company.name }} </a>
+                
+                <div class = "article-content"> {{company.description|truncatechars:250}} </div>
+                
 
             </li>
 
             {% else %}
-            <li>
+            <li class ="company-list">
             
                 <a  href="{% url 'companies:detail' company.id %}">{{ company.name }}</a>
+                <div class = "article-content"> {{company.description|truncatechars:250}} </div>
 
             </li>
             {% endif %}

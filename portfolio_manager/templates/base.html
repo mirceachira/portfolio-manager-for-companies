@@ -94,12 +94,17 @@
     <div class="container">
 
       <div class = "right">
-        <h1>Pinned</h1>
+        <h1>Important news</h1>
         <ul>
             {% for article in article_list %}
             {% if article.is_pinned == True %}
-                <li>
+                <li class="article-item">
                     <a href="{% url 'articles:detail' article.id %}">{{ article.title }}</a>
+                    <div class = "article-content"> {{article.content|truncatechars:25}} </div>
+
+                <div class="publish_date">
+                    {{article.publish_date}}
+                </div>
 
             </li>
         {% endif %}
