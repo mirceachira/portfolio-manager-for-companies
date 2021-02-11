@@ -8,7 +8,7 @@
     <meta name="description" content="Portfolio manager for software companies to publish their information, internship announcements, and more. For the UBB Mathematics and Computer Science faculty.">
     <meta name="author" content="Chira Mircea">
 
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->  
     <!--[if lt IE 9]>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
     <![endif]-->
@@ -27,7 +27,9 @@
 
     <link href="{% static 'css/project.css' %}" rel="stylesheet">
 
-
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+ 
+     <link href="{% static './css/article_list.css' %}" rel="stylesheet">
 
 
     {% endblock %}
@@ -36,14 +38,19 @@
 
   <body>
 
-
-
     <div class="mb-1">
       <nav class="navbar navbar-expand-md navbar-light bg-light">
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand" href="{% url 'home' %}">Babes-Bolyai University</a>
+
+        <a class="navbar-brand">
+          <div class="logo-image" href="../../static/css/base.css"> <!-- dimensiunea cu css nu merge si am facut in html-->
+                <img src="../../static/images/logo.png" width="300" height="50">
+          </div>
+        </a>
+
+        <!--a class="navbar-brand" href="{% url 'home' %}">Babes-Bolyai University</a-->
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
@@ -62,7 +69,7 @@
               </li>
               <li class="nav-item">
                 {# URL provided by django-allauth/account/urls.py #}
-                <a class="nav-link" href="/users/{{ request.user.username }}/">{% trans "My Profile" %}</a>
+                <a class="nav-link" href="{% url 'users:detail' request.user.username  %}">{% trans "My Profile" %}</a>
               </li>
               <li class="nav-item">
                 {# URL provided by django-allauth/account/urls.py #}
@@ -86,6 +93,20 @@
 
     <div class="container">
 
+      <div class = "right">
+        <h1>Pinned</h1>
+        <ul>
+            {% for article in article_list %}
+            {% if article.is_pinned == True %}
+                <li>
+                    <a href="{% url 'articles:detail' article.id %}">{{ article.title }}</a>
+
+            </li>
+        {% endif %}
+        {% endfor %}
+    </ul>
+    </div>
+
       {% if messages %}
           {% for message in messages %}
               <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">{{ message }}<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>
@@ -94,9 +115,10 @@
 
       {% block content %}
         <p>Use this document as a way to quick start any new project.</p>
-
+        
   <body>
       {% endblock content %}
+
 
     </div> <!-- /container -->
 

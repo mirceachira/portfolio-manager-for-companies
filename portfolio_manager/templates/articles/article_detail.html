@@ -2,22 +2,40 @@
 {% load static %}
 {% load markdown_extras %}
 
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    {% block css %}
+   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link href="{% static './css/article_list.css' %}" rel="stylesheet">
+
+    {% endblock %}
+</head>
+
+<body>
+
 {% block title %}Article {% endblock %}
 
 {% block content %}
-
+<div class = "left">
     <h1> {{ article.title }} </h1>
 
     <p> {{ article.content | markdown | safe  }} </p>
 
-    <a href="{% url 'articles:update' article.id %}">edit</a>
+    <!-- <a href="{% url 'articles:update' article.id %}">edit</a>
     <br/>
-    <a href="{% url 'articles:delete' article.id %}">delete</a>
-
+    <a href="{% url 'articles:delete' article.id %}">delete</a> -->
+    Tags:
     <ul>
         {% for tag_name in article.tags.all %}
             <li>{{ tag_name }}</li>
         {% endfor %}
     </ul>
-
+</div>
 {% endblock content %}
+
+</body>
+</html>

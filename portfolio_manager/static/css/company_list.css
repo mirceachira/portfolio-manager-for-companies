@@ -3,7 +3,7 @@ body a{
     color:black;
 }
 
-a:hover, a:visited, a:link, a:active {
+/* a:hover, a:visited, a:link, a:active {
     text-decoration: none;
     color:black;
 
@@ -27,9 +27,9 @@ a:hover, a:visited, a:link, a:active {
        margin-left: 23%;
        margin-top: 20px;
        font-size: 20px;
-     
-
    }
+   */
+
    ul{
     display: flex;
     flex-direction: column;
@@ -41,5 +41,13 @@ a:hover, a:visited, a:link, a:active {
    }
 
    ul li.gold{
-    order:-1;
-}
+    order:-1;  
+    }
+   
+    .pinned{
+    color: red;
+    }
+
+    ul li.pinned{
+        order:-2;
+    }
