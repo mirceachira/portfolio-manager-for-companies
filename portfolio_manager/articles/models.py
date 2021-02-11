@@ -69,8 +69,6 @@ class Article(models.Model):
         default=False, help_text="should be displayed in the pinned articles section"
     )
 
-    
-
     university_public_note = models.TextField(
         null=True,
         blank=True,

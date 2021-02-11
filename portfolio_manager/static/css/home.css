@@ -88,5 +88,30 @@ background-color: rgb(255, 255, 255);
   outline: 0px;
 }
 
+.right {
+  width: 220px;
+  float: right;
+  background: #bec6d6;
+  color: black;
+  }
 
+.left {
+  background: #ffffff;
+  width: auto;
+  overflow: hidden;
+  }
 
+  #header {
+    position: relative;
+    min-height: 150px;
+  }
+  
+  #header-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+  
+  #header, #header * {
+    background: rgba(40, 40, 100, 0.25);
+  }

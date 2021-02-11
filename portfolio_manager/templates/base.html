@@ -27,7 +27,9 @@
 
     <link href="{% static 'css/project.css' %}" rel="stylesheet">
 
-  
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+ 
+     <link href="{% static './css/article_list.css' %}" rel="stylesheet">
 
 
     {% endblock %}
@@ -91,6 +93,20 @@
 
     <div class="container">
 
+      <div class = "right">
+        <h1>Pinned</h1>
+        <ul>
+            {% for article in article_list %}
+            {% if article.is_pinned == True %}
+                <li>
+                    <a href="{% url 'articles:detail' article.id %}">{{ article.title }}</a>
+
+            </li>
+        {% endif %}
+        {% endfor %}
+    </ul>
+    </div>
+
       {% if messages %}
           {% for message in messages %}
               <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">{{ message }}<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>
@@ -102,6 +118,7 @@
         
   <body>
       {% endblock content %}
+
 
     </div> <!-- /container -->
 
