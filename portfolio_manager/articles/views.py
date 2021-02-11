@@ -2,7 +2,7 @@ from datetime import datetime
 
 from django.contrib.auth.mixins import UserPassesTestMixin
 from django.db.models import Q
-from django.shortcuts import redirect
+from django.shortcuts import redirect,render
 from django.urls import reverse_lazy
 from django.views.generic import DetailView, ListView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
@@ -59,6 +59,7 @@ class ArticleListView(ListView):
     paginate_by = 10
     template_name = "articles/article_list.html"
 
+
     def get_queryset(self):
         tag = self.request.GET.get("tag", None)
         if tag:
@@ -78,7 +79,7 @@ class ArticleListView(ListView):
                 Q(expiration_date__isnull=True)
                 | Q(expiration_date__gte=datetime.now()),
             )
-        return base_queryset
+        return base_queryset 
 
     def get_ordering(self):
         ordering = self.request.GET.get("ordering", "-publish_date")
