@@ -12,7 +12,9 @@
     <form>
         <div class="form-group" method="post" action="{% url 'articles:list' %}">
             <input type="text" name="tag" placeholder="Filter articles..."/>
-            <button type="submit" class="btn btn-primary">Filter</button>
+            <input type="text" name="sort" placeholder="Sort articles..."/>
+            <button type="submit" class="btn btn-primary">Filter & Sort</button>
+            <p>Sort articles by title, publish_date or expiration_date</p>
         </div>
     </form>
 

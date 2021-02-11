@@ -79,7 +79,15 @@ class ArticleListView(ListView):
                 Q(expiration_date__isnull=True)
                 | Q(expiration_date__gte=datetime.now()),
             )
-        return base_queryset 
+        
+        sort = self.request.GET.get("sort",None)
+        if sort=="title":
+            base_queryset = base_queryset.order_by('title') 
+        elif sort=="publish_date":
+            base_queryset = base_queryset.order_by('publish_date') 
+        elif sort=="expiration_date":
+            base_queryset = base_queryset.order_by('expiration_date')  
+        return base_queryset
 
     def get_ordering(self):
         ordering = self.request.GET.get("ordering", "-publish_date")
