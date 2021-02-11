@@ -42,6 +42,7 @@
     left: 50%;
     font-size: 40px;
     transform: translate(-50%, -50%);
+    text-shadow:  3px 3px 5px black; 
   }
 
 .lower{
@@ -75,6 +76,7 @@ background-color: rgb(255, 255, 255);
 
 .description {
   margin-top: 50px;
+  
 }
 
 .description p{
@@ -82,10 +84,16 @@ background-color: rgb(255, 255, 255);
 }
 
 .gotonews{
-  margin-left: 100px;
-  font-weight: 900;
-  color:black;
+  margin-left: 850px;
+  font-weight:bolder;
+  color:white;
   outline: 0px;
+  background-color:
+  #0d253f;
+  padding: 15px;
+  border-radius: 50px;
+  text-shadow:  3px 3px 5px black; 
+  
 }
 
 .right {
@@ -115,3 +123,12 @@ background-color: rgb(255, 255, 255);
   #header, #header * {
     background: rgba(40, 40, 100, 0.25);
   }
+
+  a:visited, a:link, a:active {
+    text-decoration: none;
+    color:white;
+}
+a:hover{
+    font-weight: bolder;
+    
+}

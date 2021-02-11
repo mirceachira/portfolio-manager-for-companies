@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+
 <!DOCTYPE html>
 <html>
 
@@ -34,13 +35,18 @@
     </div> -->
 
 <div class = "left">
-    <h1>Posts</h1>
-    <p>This page contains approved posts from all companies as well as the university</p>
+    <h1>Latest news</h1>
     <ul>
         {% for article in article_list %}
-            <li>
+            <li class="article-item">
                 <a href="{% url 'articles:detail' article.id %}">{{ article.title }}</a>
+        
+                <div class = "article-content"> {{article.content|truncatechars:250}} </div>
 
+                <div class="publish_date">
+                    {{article.publish_date}}
+                </div>
+                
             </li>
         {% endfor %}
     </ul>
