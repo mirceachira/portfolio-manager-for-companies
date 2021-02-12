@@ -3,7 +3,7 @@ body a{
     color:black;
 }
 
-a:hover, a:visited, a:link, a:active {
+/* a:hover, a:visited, a:link, a:active {
     text-decoration: none;
     color:black;
 
@@ -27,19 +27,46 @@ a:hover, a:visited, a:link, a:active {
        margin-left: 23%;
        margin-top: 20px;
        font-size: 20px;
-     
-
    }
+   */
+
    ul{
     display: flex;
     flex-direction: column;
   }
+  
 
    .gold a{
-       color: gold;
+       color:black;
      
    }
 
+   .gold a:hover{
+       color:gold;
+   }
+
    ul li.gold{
-    order:-1;
-}
+    order:-1;  
+    list-style-image: url('../images/thestar.png');
+    }
+   
+    .pinned{
+    color: red;
+    }
+
+    ul li.pinned{
+        order:-2;
+    }
+
+    .company-list{
+        margin-top: 30px;
+        font-weight: bold;
+        border-bottom: 1px solid rgba(112, 112, 170, .5);
+    }
+    .gold{
+        margin-top: 30px;
+        font-weight: bold;
+        border-bottom: 1px solid rgba(112, 112, 170, .5);
+    }
+
+    

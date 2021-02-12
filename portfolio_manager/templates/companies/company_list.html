@@ -9,6 +9,7 @@
    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <link href="{% static './css/company_list.css' %}" rel="stylesheet">
+    <link href="{% static './css/article_list.css' %}" rel="stylesheet">
 
     {% endblock %}
 </head>
@@ -19,30 +20,35 @@
 {% block title %}Companies {% endblock %}
 
 {% block content %}
-<div class="hero">  <h1> Companies</h1>
+<div class = "left">
+ <h1> Companies</h1>
 
     <ul class="companylist">
         {% for company in company_list %}
         {% if company.has_gold_status == True %}
             <li class="gold">
             
-                <a  href="{% url 'companies:detail' company.id %}">{{ company.name }}</a>
+
+            
+            
+                <a  href="{% url 'companies:detail' company.id %}">{{ company.name }} </a>
+                
+                <div class = "article-content"> {{company.description|truncatechars:250}} </div>
+                
 
             </li>
 
             {% else %}
-            <li>
+            <li class ="company-list">
             
                 <a  href="{% url 'companies:detail' company.id %}">{{ company.name }}</a>
+                <div class = "article-content"> {{company.description|truncatechars:250}} </div>
 
             </li>
             {% endif %}
         {% endfor %}
     </ul>
-
-
 </div>
-   
     
 
 {% endblock content %}

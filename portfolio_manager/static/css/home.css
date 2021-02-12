@@ -1,6 +1,6 @@
 .homepage{
 
-  background: url('../images/background.png') no-repeat center fixed;
+  background: url('../images/choice-of-programming-language.jpg') no-repeat center fixed;
   
 
     position: absolute;
@@ -33,10 +33,6 @@
       text-align: center;
       color:white;
       margin-top: 180px; */
-
-
-
-
     font-weight: 900;
     color: white;
     text-transform: uppercase;
@@ -46,6 +42,7 @@
     left: 50%;
     font-size: 40px;
     transform: translate(-50%, -50%);
+    text-shadow:  3px 3px 5px black; 
   }
 
 .lower{
@@ -79,6 +76,7 @@ background-color: rgb(255, 255, 255);
 
 .description {
   margin-top: 50px;
+  
 }
 
 .description p{
@@ -86,11 +84,51 @@ background-color: rgb(255, 255, 255);
 }
 
 .gotonews{
-  margin-left: 100px;
-  font-weight: 900;
-  color:black;
+  margin-left: 850px;
+  font-weight:bolder;
+  color:white;
   outline: 0px;
+  background-color:
+  #0d253f;
+  padding: 15px;
+  border-radius: 50px;
+  text-shadow:  3px 3px 5px black; 
+  
 }
 
+.right {
+  width: 220px;
+  float: right;
+  background: #bec6d6;
+  color: black;
+  }
 
+.left {
+  background: #ffffff;
+  width: auto;
+  overflow: hidden;
+  }
 
+  #header {
+    position: relative;
+    min-height: 150px;
+  }
+  
+  #header-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+  
+  #header, #header * {
+    background: rgba(40, 40, 100, 0.25);
+  }
+
+  a:visited, a:link, a:active {
+    text-decoration: none;
+    color:white;
+}
+a:hover{
+    font-weight: bolder;
+    
+}

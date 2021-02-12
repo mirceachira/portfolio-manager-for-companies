@@ -10,8 +10,9 @@
 
     <p> {{ company.description | markdown | safe }} </p>
     <p> {{ company.email }} </p>
-
+<div class ="company-articles">
     <a href="{% url 'companies:articles' company.id %}">articles from this company</a>
+</div>
 
 
 {% endblock content %}
