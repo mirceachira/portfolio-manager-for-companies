@@ -17,39 +17,34 @@
 <body>
 
 
-{% block title %}Companies {% endblock %}
+{% block title %}Companii {% endblock %}
 
 {% block content %}
 <div class = "left">
- <h1> Companies</h1>
+
+    <br>
+
+    <h3>Companii partenere</h3>
 
     <ul class="companylist">
         {% for company in company_list %}
         {% if company.has_gold_status == True %}
             <li class="gold">
-            
-
-            
-            
                 <a  href="{% url 'companies:detail' company.id %}">{{ company.name }} </a>
-                
                 <div class = "article-content"> {{company.description|truncatechars:250}} </div>
-                
-
             </li>
 
             {% else %}
-            <li class ="company-list">
-            
+            <li class="company-list" style="list-style-type:none">
                 <a  href="{% url 'companies:detail' company.id %}">{{ company.name }}</a>
-                <div class = "article-content"> {{company.description|truncatechars:250}} </div>
-
+                <div class = "article-content"> {{company.short_description}} </div>
             </li>
             {% endif %}
         {% endfor %}
     </ul>
 </div>
-    
+
+
 
 {% endblock content %}
 </body>

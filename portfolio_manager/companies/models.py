@@ -11,6 +11,11 @@ class Company(models.Model):
     description = models.TextField(
         null=False, blank=False, help_text="description of the company"
     )
+    short_description = models.TextField(
+        null=False,
+        blank=False,
+        help_text="short description of the company, appears in list of companies",
+    )
 
     email = models.EmailField(null=False, blank=False, help_text="company's email")
     phone = models.TextField(null=True, blank=True, help_text="company's phone")

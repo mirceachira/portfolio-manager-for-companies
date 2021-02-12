@@ -44,6 +44,11 @@ class Article(models.Model):
     )
     title = models.TextField(null=False, blank=False, help_text="the article title")
     content = models.TextField(null=False, blank=False, help_text="the article content")
+    short_description = models.TextField(
+        null=False,
+        blank=False,
+        help_text="short description of the company, appears in list of companies",
+    )
 
     # The date the article was created
     created_date = models.DateTimeField(

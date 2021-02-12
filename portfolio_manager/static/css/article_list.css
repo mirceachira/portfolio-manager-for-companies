@@ -11,7 +11,7 @@
     font-size: 25px;
     }
 
-   
+
 
 .left {
     background: #ffffff;
@@ -23,11 +23,11 @@
 
 
 .tags{
-    
+
     position: absolute;
     bottom: 30px;
 }
-    
+
 body a{
     color:black;
 }
@@ -35,10 +35,10 @@ body a{
 
     .left a:visited, a:link, a:active {
         text-decoration: none;
-        
-        
+
+
       }
-      
+
       a:hover{
         font-weight: bolder;
       }
@@ -50,13 +50,13 @@ body a{
          font-weight: bold;;
      }
 
-      
+
 
       .article-item{
           margin-top: 30px;
           font-weight: bold;
           border-bottom: 1px solid rgba(112, 112, 170, .5);
-        
+
       }
 
       .article-item a:hover{
@@ -67,6 +67,10 @@ body a{
           font-size: 10px;
           color: rgba(128, 128, 128, 0.514);
       }
+      .exp_date{
+        font-size: 10px;
+        color: red;
+      }
 
       .article-content{
           text-indent: 10px;
@@ -74,4 +78,3 @@ body a{
           font-weight: lighter;
           padding-bottom: 10px;
       }
-

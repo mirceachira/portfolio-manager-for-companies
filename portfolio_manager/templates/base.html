@@ -8,7 +8,7 @@
     <meta name="description" content="Portfolio manager for software companies to publish their information, internship announcements, and more. For the UBB Mathematics and Computer Science faculty.">
     <meta name="author" content="Chira Mircea">
 
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->  
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
     <![endif]-->
@@ -28,7 +28,7 @@
     <link href="{% static 'css/project.css' %}" rel="stylesheet">
 
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
- 
+
      <link href="{% static './css/article_list.css' %}" rel="stylesheet">
 
 
@@ -39,50 +39,38 @@
   <body>
 
     <div class="mb-1">
-      <nav class="navbar navbar-expand-md navbar-light bg-light">
+      <nav class="navbar navbar-expand-md navbar-light navbar-right bg-light">
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
 
         <a class="navbar-brand">
           <div class="logo-image" href="../../static/css/base.css"> <!-- dimensiunea cu css nu merge si am facut in html-->
-                <img src="../../static/images/logo.png" width="300" height="50">
+            <a href="{% url 'home' %}"><img src="{% static 'images/logo.png' %}" width="300" height="50"></a>
           </div>
         </a>
 
         <!--a class="navbar-brand" href="{% url 'home' %}">Babes-Bolyai University</a-->
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+        <div class="collapse navbar-collapse float-right" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto float-right">
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'articles:list' %}">Anunturi</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'articles:list' %}">News</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'companies:list' %}">Companies</a>
+              <a class="nav-link" href="{% url 'companies:list' %}">Companii</a>
             </li>
             {% if request.user.is_authenticated %}
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'articles:company-list' %}">My news</a>
+                <a class="nav-link" href="{% url 'articles:company-list' %}">Anunturile mele</a>
               </li>
               <li class="nav-item">
                 {# URL provided by django-allauth/account/urls.py #}
-                <a class="nav-link" href="{% url 'users:detail' request.user.username  %}">{% trans "My Profile" %}</a>
+                <a class="nav-link" href="/users/{{ request.user.username }}">{% trans "Profil" %}</a>
               </li>
               <li class="nav-item">
                 {# URL provided by django-allauth/account/urls.py #}
                 <a class="nav-link" href="{% url 'account_logout' %}">{% trans "Sign Out" %}</a>
-              </li>
-            {% else %}
-              <li class="nav-item">
-                {# URL provided by django-allauth/account/urls.py #}
-                <a id="sign-up-link" class="nav-link" href="{% url 'account_signup' %}">{% trans "Sign Up" %}</a>
-              </li>
-              <li class="nav-item">
-                {# URL provided by django-allauth/account/urls.py #}
-                <a id="log-in-link" class="nav-link" href="{% url 'account_login' %}">{% trans "Sign In" %}</a>
               </li>
             {% endif %}
           </ul>
@@ -92,26 +80,6 @@
     </div>
 
     <div class="container">
-
-      <div class = "right">
-        <h1>Important news</h1>
-        <ul>
-            {% for article in article_list %}
-            {% if article.is_pinned == True %}
-                <li class="article-item">
-                    <a href="{% url 'articles:detail' article.id %}">{{ article.title }}</a>
-                    <div class = "article-content"> {{article.content|truncatechars:25}} </div>
-
-                <div class="publish_date">
-                    {{article.publish_date}}
-                </div>
-
-            </li>
-        {% endif %}
-        {% endfor %}
-    </ul>
-    </div>
-
       {% if messages %}
           {% for message in messages %}
               <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">{{ message }}<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>
@@ -120,7 +88,7 @@
 
       {% block content %}
         <p>Use this document as a way to quick start any new project.</p>
-        
+
   <body>
       {% endblock content %}
 

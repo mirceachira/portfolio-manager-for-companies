@@ -5,17 +5,55 @@
 
 {% block content %}
 
-    <a href="{% url 'articles:add' %}">create a new article</a>
-    <h1>Posts</h1>
-    <p>This page contains posts only from my own company, approved or not</p>
+<br>
+<p>Anunturile mele, aprobate sau nu.</p>
 
-    <ul>
+    <button type="button" class="btn btn-primary">    <a href="{% url 'articles:add' %}">Creeaza un nou articol</a>
+    </button>
+
+        <br>
+        <br>
+        <br>
+
+    <ul class="list-group list-group-flush">
         {% for article in article_list %}
-            <li>
-                <a href="{% url 'articles:detail' article.id %}">{{ article.title }}</a>
+            <li class="list-group-item">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">
+                        <a href="{% url 'articles:detail' article.id %}">{{ article.title }}</a>
+                    </h5>
+                    <small>
+                        <div class="publish_date">{{article.publish_date}}</div>
+                        {% if article.expiration_date %}
+                            <div class="exp_date">{{article.expiration_date}}</div>
+                        {% endif %}
+                    </small>
+                </div>
 
-            </li>
-        {% endfor %}
+                <div class="d-flex w-100 justify-content-between">
+                    <div class = "article-content"> {{ article.short_description }} </div>
+                    <div>
+                        {% for tag_name in article.tags.all %}
+                            <h6><span class="badge badge-info rounded-pill">{{ tag_name }}</span></h6>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div>
+                    {% if article.is_approved %}
+                    <p style="color: green">aprobat</p>
+                {% else %}
+                    <p style="color: red">asteapta aprobare</p>
+                {% endif %}
+                </div>
+
+                <div>
+                    <button type="button" class="btn btn-primary"><a href="{% url 'articles:update' article.id %}">editeaza</a></button>
+                    <button type="button" class="btn btn-primary"><a href="{% url 'articles:delete' article.id %}">sterge</a></button>
+                </div>
+
+        </li>
+    {% endfor %}
     </ul>
 
 {% endblock content %}

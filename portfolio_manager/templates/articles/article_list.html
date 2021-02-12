@@ -20,50 +20,95 @@
 {% block title %}News {% endblock %}
 
 {% block content %}
-    <h1>Posts</h1>
-    <p>This page contains approved posts from all companies as well as the university</p>
-
-    <form>
-        <div class="form-group" method="post" action="{% url 'articles:list' %}">
-            <input type="text" name="tag" placeholder="Filter articles..."/>
-            <input type="text" name="sort" placeholder="Sort articles..."/>
-            <button type="submit" class="btn btn-primary">Filter & Sort</button>
-            <p>Sort articles by title, publish_date or expiration_date</p>
-        </div>
-    </form>
-
-<!-- <div class="container">
-    <div class = "right">
-        <h1>Pinned</h1>
-    <ul>
-        {% for article in article_list %}
-        {% if article.is_pinned == True %}
-            <li>
-                <a href="{% url 'articles:detail' article.id %}">{{ article.title }}</a>
-
-            </li>
-        {% endif %}
-        {% endfor %}
-    </ul>
-    </div> -->
-
-<div class = "left">
-    <h1>Latest news</h1>
-    <ul>
-        {% for article in article_list %}
-            <li class="article-item">
-                <a href="{% url 'articles:detail' article.id %}">{{ article.title }}</a>
-        
-                <div class = "article-content"> {{article.content|truncatechars:250}} </div>
-
-                <div class="publish_date">
-                    {{article.publish_date}}
+    <div class="row">
+        <div class="col-sm-8">
+            <div class="row"><br></div>
+            <div class="row">
+                <div class="dropdown col-sm-8">
+                    <h3>Toate anunturile</h3>
                 </div>
-                
-            </li>
-        {% endfor %}
-    </ul>
-</div>
+                <div class="dropdown col-sm-2">
+                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">filtreaza
+                    <span class="caret"></span></button>
+                    <ul class="dropdown-menu">
+                    <li><a href="/news/list?tag=python">python</a></li>
+                    <li><a href="/news/list?tag=java">java</a></li>
+                    <li><a href="/news/list?tag=internship">internship</a></li>
+                    <li><a href="/news/list?tag=hackathon">hackathon</a></li>
+                    </ul>
+                </div>
+
+                <div class="dropdown col-sm-2">
+                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">sorteaza
+                    <span class="caret"></span></button>
+                    <ul class="dropdown-menu">
+                    <li><a href="/news/list?sort=publish_date">cele mai noi</a></li>
+                    <li><a href="/news/list?sort=-publish_date">cele mai vechi</a></li>
+                    <li><a href="/news/list?sort=expiration_date">expira curand</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class = "left">
+                    <ul class="list-group list-group-flush">
+                        {% for article in article_list %}
+                            <li class="list-group-item">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1"><a href="{% url 'articles:detail' article.id %}">{{ article.title }}</a></h5>
+                                    <small>
+                                        <div class="publish_date">{{article.publish_date}}</div>
+                                        {% if article.expiration_date %}
+                                            <div class="exp_date">{{article.expiration_date}}</div>
+                                        {% endif %}
+                                    </small>
+                                </div>
+
+                                <div class="d-flex w-100 justify-content-between">
+                                    <div class = "article-content"> {{ article.short_description }} </div>
+                                    <div>
+                                        {% for tag_name in article.tags.all %}
+                                            <h6><span class="badge badge-info rounded-pill">{{ tag_name }}</span></h6>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+        </div>
+        <div class="col-sm-4">
+            <div class = "right">
+                <br>
+                <h4>Anunturi promovate</h4>
+                <ul class="list-group list-group-flush">
+                    {% for article in article_list %}
+                        {% if article.is_pinned == True %}
+                            <li class="list-group-item">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1"><a href="{% url 'articles:detail' article.id %}">{{ article.title }}</a></h5>
+                                    <small>
+                                        <div class="publish_date">{{article.publish_date}}</div>
+                                        {% if article.expiration_date %}
+                                            <div class="exp_date" style="color: red">{{article.expiration_date}}</div>
+                                        {% endif %}
+                                    </small>
+                                </div>
+
+                                <div class="d-flex w-100 justify-content-between">
+                                    <div class = "article-content"> {{article.content|truncatechars:25}} </div>
+                                    <div>
+                                        {% for tag_name in article.tags.all %}
+                                            <h6><span class="badge badge-info rounded-pill">{{ tag_name }}</span></h6>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+      </div>
 
 {% endblock content %}
 
