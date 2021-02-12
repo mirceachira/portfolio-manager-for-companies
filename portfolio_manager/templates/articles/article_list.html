@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load crispy_forms_tags %}
 
 <!DOCTYPE html>
 <html>
@@ -19,6 +20,18 @@
 {% block title %}News {% endblock %}
 
 {% block content %}
+    <h1>Posts</h1>
+    <p>This page contains approved posts from all companies as well as the university</p>
+
+    <form>
+        <div class="form-group" method="post" action="{% url 'articles:list' %}">
+            <input type="text" name="tag" placeholder="Filter articles..."/>
+            <input type="text" name="sort" placeholder="Sort articles..."/>
+            <button type="submit" class="btn btn-primary">Filter & Sort</button>
+            <p>Sort articles by title, publish_date or expiration_date</p>
+        </div>
+    </form>
+
 <!-- <div class="container">
     <div class = "right">
         <h1>Pinned</h1>
@@ -51,9 +64,6 @@
         {% endfor %}
     </ul>
 </div>
-
-
-
 
 {% endblock content %}
 
