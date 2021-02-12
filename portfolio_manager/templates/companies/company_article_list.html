@@ -5,15 +5,30 @@
 
 {% block content %}
 
-    <h1>Company posts</h1>
-    <p>This page contains approved posts from a particular company</p>
-    <ul>
+    <p>Anunturile companiei</p>
+    <ul class="list-group list-group-flush">
         {% for article in article_list %}
-            <li>
-                <a href="{% url 'articles:detail' article.id %}">{{ article.title }}</a>
+            <li class="list-group-item">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1"><a href="{% url 'articles:detail' article.id %}">{{ article.title }}</a></h5>
+                    <small>
+                        <div class="publish_date">{{article.publish_date}}</div>
+                        {% if article.expiration_date %}
+                            <div class="exp_date">{{article.expiration_date}}</div>
+                        {% endif %}
+                    </small>
+                </div>
 
-            </li>
-        {% endfor %}
-    </ul>
+                <div class="d-flex w-100 justify-content-between">
+                    <div class = "article-content"> {{ article.short_description }} </div>
+                    <div>
+                        {% for tag_name in article.tags.all %}
+                            <h6><span class="badge badge-info rounded-pill">{{ tag_name }}</span></h6>
+                        {% endfor %}
+                    </div>
+                </div>
+        </li>
+    {% endfor %}
+</ul>
 
 {% endblock content %}
