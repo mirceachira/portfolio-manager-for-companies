@@ -1,18 +1,75 @@
 {% extends "base.html" %}
 {% load static %}
 {% load markdown_extras %}
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    {% block css %}
+   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link href="{% static './css/article_list.css' %}" rel="stylesheet">
+
+    {% endblock %}
+</head>
+
+
+<body class= "company-body">
+    <div class = "main">
 
 {% block title %}Company {% endblock %}
 
 {% block content %}
 
     <h1> {{ company.name }} </h1>
+   
 
-    <p> {{ company.description | markdown | safe }} </p>
-    <p> {{ company.email }} </p>
-<div class ="company-articles">
-    <a href="{% url 'companies:articles' company.id %}">articles from this company</a>
-</div>
+    <div>{{ company.description | markdown | safe }} </div>
+    <div class ="company-articles">
+        <a href="{% url 'companies:articles' company.id %}">articles from this company</a>
+    </div>
+
+
+
+        <div class="contact ">
+            <h2> Contact </h2>
+    
+            <ul>
+                {% if company.adress %}
+                <li><p> {{ company.adress }} </p> </li>
+                {%endif%}
+                <li><p> {{ company.phone }} </p> </li>
+                {% if company.email %}
+                <li><p> {{ company.email }} </p> </li>
+                {%endif%}
+                {% if company.website %}
+                <li><p> {{ company.website }} </p> </li>
+                {%endif%}
+            </ul>
+    
+    
+                </div>
+                
+
+
+
+   
+
+ 
+
+
+
+
 
 
 {% endblock content %}
+
+</div>
+
+
+</body>
+
+
+</html>
+

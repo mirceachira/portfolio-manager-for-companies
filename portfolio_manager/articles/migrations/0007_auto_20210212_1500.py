@@ -13,7 +13,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='article',
             name='short_description',
-            field=models.TextField(default='short fucking description for fucking articles', help_text='short description of the company, appears in list of companies'),
+            field=models.TextField(default='Short company description', help_text='short description of the company, appears in list of companies'),
             preserve_default=False,
         ),
         migrations.AddField(
