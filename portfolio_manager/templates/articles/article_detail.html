@@ -22,22 +22,32 @@
 {% block content %}
 
 <div class = "left">
-    <h1> {{ article.title }} </h1>
 
+    <h5 class="mb-1">{{ article.title }}</h5>
+
+    <br>
+    <small>
+        <div class="publish_date">{{article.publish_date}}</div>
+        {% if article.expiration_date %}
+            <div class="exp_date">{{article.expiration_date}}</div>
+        {% endif %}
+    </small>
+    {% for tag_name in article.tags.all %}
+        <h6><span class="badge badge-info rounded-pill">{{ tag_name }}</span></h6>
+    {% endfor %}
+
+    <br>
+    <hr/>
     <p> {{ article.content | markdown | safe  }} </p>
 
-    <!-- <a href="{% url 'articles:update' article.id %}">edit</a>
-    <br/>
-    <a href="{% url 'articles:delete' article.id %}">delete</a> -->
-    <div class="tags">
-    Tags:
-    <ul>
-        {% for tag_name in article.tags.all %}
-            <li>{{ tag_name }}</li>
-        {% endfor %}
-    </ul>
+    <br>
+
+    <hr/>
+
+    <p class="publish_date">publicat de {{ article.author.username }}</p>
+
 </div>
-</div>
+
 {% endblock content %}
 
 </body>
