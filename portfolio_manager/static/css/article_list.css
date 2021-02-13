@@ -25,12 +25,13 @@
 .tags{
 
     position: absolute;
-    bottom: 30px;
+    vertical-align: bottom;
 }
 
 body a{
     color:black;
 }
+
 
 
     .left a:visited, a:link, a:active {
@@ -78,3 +79,53 @@ body a{
           font-weight: lighter;
           padding-bottom: 10px;
       }
+
+      .empty-div{
+          width: 1300px;
+      }
+
+
+    /* company detail css*/
+
+  
+
+      .contact{
+        position: absolute;
+          bottom: 0;
+          background-color: #0d253f; 
+          vertical-align: bottom;
+          left: 0;
+          right:0;
+          padding-top: 20px;
+          
+          color:white;
+          text-indent: 360px;
+
+        
+      }
+
+
+      .contact ul{
+         list-style-type: none;
+         margin-top: 10px;
+         border-top: 1px solid rgba(255, 255, 255, 0.5);
+      }
+
+      .company-articles{
+        font-weight:bolder;
+        width: 230px;
+        outline: 0px;
+        background-color:
+        #0d253f;
+        padding: 5px;
+        border-radius: 50px;
+      }
+
+    
+
+      .company-articles a{
+          color:white;
+
+      }
+
+

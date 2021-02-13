@@ -46,19 +46,23 @@
 
   </head>
 
-  <body>
+  <div class="mb-1">
+    <nav class="navbar navbar-expand-md navbar-light navbar-right bg-light">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-    <div class="mb-1">
-        <nav class="navbar navbar-expand-md navbar-light navbar-right bg-light">
-          <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
+      <a class="navbar-brand">
+        <div class="logo-image" href="../../static/css/base.css"> <!-- dimensiunea cu css nu merge si am facut in html-->
+          <a href="{% url 'home' %}"><img src="{% static 'images/logo.png' %}" width="300" height="50" ></a>
+        </div>
+      </a>
 
-          <a class="navbar-brand">
-            <div class="logo-image" href="{% static 'css/base.css' %}"> <!-- dimensiunea cu css nu merge si am facut in html-->
-              <a href="{% url 'home' %}"><img src="{% static 'images/logo.png' %}" width="300" height="50"></a>
-            </div>
-          </a>
+      <div class="empty-div">
+        
+
+      </div>
+
 
           <!--a class="navbar-brand" href="{% url 'home' %}">Babes-Bolyai University</a-->
 
@@ -104,7 +108,7 @@
             </div>
             <div class="arrow">
                 <div class="arrowtext">ABOUT</div>
-                <input class="scrolldown" placeholder="News" type="image" src="../../static/images/down2.png"  onClick="document.getElementById('lowerpage').scrollIntoView( {behavior: 'smooth'});" />
+                <input class="scrolldown" placeholder="News" type="image" src="../../static/images/down3.png"  onClick="document.getElementById('lowerpage').scrollIntoView( {behavior: 'smooth'});" />
             </div>
             <div  class="lower">
                 <div class="description">
