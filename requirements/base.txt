@@ -16,3 +16,4 @@ django-allauth==0.43.0  # https://github.com/pennersr/django-allauth
 django-crispy-forms==1.10.0  # https://github.com/django-crispy-forms/django-crispy-forms
 django-redis==4.12.1  # https://github.com/jazzband/django-redis
 django-simple-history==2.12.0  # https://django-simple-history.readthedocs.io/en/latest/index.html
+django-invitations==1.9.3  # https://github.com/bee-keeper/django-invitations
